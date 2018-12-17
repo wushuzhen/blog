@@ -47,14 +47,14 @@ app.set('view engine', 'ejs')
 
 fs.readdir('./routes',(err, files) => {
     if(err) return console.log(err.message)
-    file.forEach(filename => {
+    files.forEach(filename => {
         // 相对路径引入
         // console.log('./routes/' + filename)
         // app.use(require('./routes/' + filename))
 
         // 绝对路径引入
         // let 和 const 都有块级作用域
-        const filePath = path.join(__dirname,'./routes' + filename)
+        const filePath = path.join(__dirname,'./routes/' + filename)
         // console.log(filePath)
         app.use(require(filePath))
     })
