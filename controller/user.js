@@ -53,7 +53,7 @@ module.exports = {
             if(err || result.length === 0) return res.status(400).send({ status: 400, msg: '登录失败!请重试!' })
 
             // 使用bcrypt进行校验
-            if(!bcrypt.compareSync(req.body.password, result[0].password)) return res.status(400).sed({ status: 400, msg: '登录失败!请重试!' })
+            if(!bcrypt.compareSync(req.body.password, result[0].password)) return res.status(400).send({ status: 400, msg: '登录失败!请重试!' })
 
             // 登录成功
             // 将用户信息存储在session中
